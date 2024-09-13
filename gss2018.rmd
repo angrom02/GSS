@@ -105,6 +105,7 @@ $H_A$ Years of education do not make a difference between who voted and who did 
 ```{r}
 boxplot(EDUC~VOTE12,data=GSSdata)
 ```
+
 This graph shows people who voted in 2012 tended to have more education than those who did not vote. 
 
 
@@ -127,6 +128,7 @@ The data shows that on average people who voted in 2012 had approximately 15 yea
 ```{r}
 t.test(EDUC~VOTE12,data=GSSdata)
 ```
+
 We reject the null hypothesis because the data shows that people who voted in 2012 had more years of education. 
 
 #  Question 3
@@ -136,6 +138,9 @@ We reject the null hypothesis because the data shows that people who voted in 20
 Determine if a persons performance on the wordsum test (WORDSUM) is independent of their level of schooling (DEGREE).
 
 ## Methods
+
+$H_0$ A persons wordsum test is independant of the level of schooling they received.
+$H_A$ A persons wordum test is not independant of the level of schooling they received. 
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
 
@@ -149,11 +154,34 @@ Determine if a persons performance on the wordsum test (WORDSUM) is independent 
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+plot(WORDSUM~DEGREE,data=GSSdata)
+```
+
+The boxplot shows that a persons wordsum test result is higher the farther in education they got.
+
+
 #### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+favstats(WORDSUM~DEGREE,data=GSSdata) 
+```
+
+The data shows the highest average is by people in the Graduate category whereas the lowest mean was by people in the LT High School category.
+
 ### Inferential Results
+```{r}
+model1 <- aov(WORDSUM~DEGREE,data=GSSdata)
+summary.aov(model1)
+```
+
+```{r}
+plot(TukeyHSD(model1))
+```
+
+There is no statical evidence in difference a persons Wordsum test between less than high school and high school, less than high school and junior college, junior college and bachelor, junior college and graduate and finally bachelor and graduate. 
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
