@@ -53,7 +53,7 @@ barchartGC(~OWNGUN + CAPPUN,data=GSSdata)
 barchartGC(~OWNGUN + CAPPUN,data=GSSdata)
 ```
 
-This bar chart shows gun owners are more likely to favor capital punishment. 
+This bar chart shows that people who are gun owners are more likely to favor capital punishment. 
 
 #### Numerical Descriptive Results
 
@@ -78,7 +78,7 @@ chisqtestGC(table1)
 fisher.test(table1)
 ```
 
-We reject the null hypothesis because the p value is less than 0.05. We reject the null hypothesis and conclude that gun ownership and opinions on capital punishment are related. The Fisher's Exact Test shows that the odds ratio of 2.27:1 means gun owners are more likely to be in favor of capital punishment. 
+We reject the null hypothesis because the p value is less than 0.05. We can conclude that gun ownership and opinions on capital punishment are related. The Fisher's Exact Test shows that the odds ratio of 2.27:1 means gun owners are more likely to be in favor of capital punishment. 
 
 #  Question 2
 
@@ -106,7 +106,7 @@ $H_A$ Years of education do not make a difference between who voted and who did 
 boxplot(EDUC~VOTE12,data=GSSdata)
 ```
 
-This graph shows people who voted in 2012 tended to have more education than those who did not vote. 
+This graph shows people who voted in 2012 tended to have more education than those who did not vote.8 
 
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
@@ -139,7 +139,7 @@ Determine if a persons performance on the wordsum test (WORDSUM) is independent 
 
 ## Methods
 
-$H_0$ A persons wordsum test is independant of the level of schooling they received.
+$H_0$ A persons wordsum test is independant of the level of schooling they received.        
 $H_A$ A persons wordum test is not independant of the level of schooling they received. 
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
@@ -158,7 +158,7 @@ $H_A$ A persons wordum test is not independant of the level of schooling they re
 plot(WORDSUM~DEGREE,data=GSSdata)
 ```
 
-The boxplot shows that a persons wordsum test result is higher the farther in education they got.
+The boxplot shows that a persons wordsum test results get higher the farther in education they got.
 
 
 #### Numerical Descriptive Results
@@ -177,16 +177,24 @@ model1 <- aov(WORDSUM~DEGREE,data=GSSdata)
 summary.aov(model1)
 ```
 
+
 ```{r}
 plot(TukeyHSD(model1))
 ```
 
-There is no statical evidence in difference a persons Wordsum test between less than high school and high school, less than high school and junior college, junior college and bachelor, junior college and graduate and finally bachelor and graduate. 
+There is no statistical evidence in difference a persons Wordsum test between less than high school and high school, less than high school and junior college, junior college and bachelor, junior college and graduate and finally bachelor and graduate. 
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
+
+We reject the null hypothesis because the p value is less than 0.05. From the data, we can assume that a person's highest level of education relates to their wordsum test result. The boxplot shows how the farther in education they got, the higher the wordsum score they received.
 
 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
 
+Question 1 conclusion: We can conclude that a person's opinion on capital punishment and gun ownership are related. Through the numerical chart, we can see that those who favor capital punishment and own a gun have a higher percentage than those who oppose capital punishment and do not own a gun. 
+
+Question 2 conclusion: In question 2, we came to the conclusion that people years of education is related to whether or not they voted in 2012. In the boxplot, voters in 2012 had an average of 16 years of education whereas people who did not vote had an average of 13 years of education.  
+
+Question 3 conclusion: With the data gathered in question 3, we conclude that a person's wordsum performance may not be independent of the level of schooling they received. The boxplot indicated that people who got their bachelors degree had a higher performance on the wordsum test. With this data, we deduce receiving a bachelors degree or higher could postively influence a wordsum test performance. 
